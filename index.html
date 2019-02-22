@@ -13,15 +13,24 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-5 text-center">Coffee!</h1>
-    <hr>
 
-    <div class="row">
-        <div class="col">
+        <div class="overlay jumbotron jumbotron-fluid jumbotron-background">
+            <div class="row">
+                <h1 class="display-4 col d-flex justify-content-end align-items-center">Java</h1>
+                <img id="logo" class="col" src="java-logo.png" alt="java-logo">
+                <h1 class="display-4 col d-flex justify-content-start align-items-center pl-0">Coffee</h1>
+            </div>
+        </div> <!---end of jumbotron-->
+
+
+
+
+    <div class="row mt-5">
+        <div class="col p-4">
             <div id="coffees" class="row"></div>
         </div>
 
-        <div class="col">
+        <div id="shadow-form" class="col bg-white rounded shadow p-3 mb-5">
             <form>
                 <label for="roast-selection">Roast</label>
                 <select id="roast-selection" class="mb-3 form-control">
@@ -33,7 +42,7 @@
                 <label for="coffee-name">Coffee Name</label>
                     <input id="coffee-name" class="form-control" type="text">
 
-                <input id="submit" class="my-4 btn form-control" type="submit"/>
+                <input id="submit" class="my-4 btn-secondary form-control" type="submit"/>
                 <hr>
             </form>
             <form>
@@ -46,7 +55,7 @@
                 <label for="add-coffee-name">Coffee Name</label>
                 <input id="add-coffee-name" class="form-control" type="text">
 
-                <input id="add-coffee-submit" class="my-4 btn form-control" type="submit"/>
+                <input id="add-coffee-submit" class="my-4 btn-secondary form-control" type="submit"/>
                 <hr>
             </form>
         </div>
