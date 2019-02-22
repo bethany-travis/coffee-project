@@ -2,9 +2,9 @@
 
 
 function renderCoffee(coffee) {
-    var html = '<div class="col-12 col-lg-6 coffee d-flex align-items-baseline">';
+    var html = '<div class="col-12 col-lg-6 coffee d-flex my-2">';
     html += '<h4 class="mr-2">' + coffee.name + '</h4>';
-    html += '<p class="text-muted">' + coffee.roast + '</p>';
+    html += '<p class="text-muted"><span class="badge badge-secondary">' + coffee.roast + '</span></p>';
     html += '</div>';
 
     return html;
