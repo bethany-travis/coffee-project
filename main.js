@@ -26,9 +26,14 @@ function updateCoffees(e) {
 
 
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
+        if (selectedRoast === allCoffees.value) {
+            filteredCoffees.push(coffee);
+        } else if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
+
+
+
     });
     coffeesContainer.innerHTML = renderCoffees(filteredCoffees);
 }
@@ -36,13 +41,33 @@ function updateCoffees(e) {
 function inputSearch (e) {
     var html = '';
     for (var i = 0; i < coffees.length; i++) {
-        if (coffees[i].name.includes(searchedCoffee.value)) {
+        if (coffees[i].name.includes((searchedCoffee.value).toLowerCase())) {
             html += renderCoffee(coffees[i]);
         }
     }
     // return html;
     coffeesContainer.innerHTML = html;
 }
+
+
+function addCoffee (e) {
+    e.preventDefault();
+
+    var newCoffeeObject = {};
+    newCoffeeObject.id = coffees.length + 1;
+    newCoffeeObject.name = newCoffee.value;
+    newCoffeeObject.roast = newRoast.value;
+
+
+
+    coffees.push(newCoffeeObject);
+
+    console.log(coffees);
+
+    renderCoffees(coffee);
+}
+
+
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -62,13 +87,25 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-var input = document.querySelector('input');
+// var input = document.querySelector('input');
 var coffeesContainer = document.querySelector('#coffees');
 var searchedCoffee = document.getElementById('coffee-name');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+var allCoffees = document.getElementById("all");
+
+var newCoffee = document.getElementById('add-coffee-name');
+var newRoast = document.getElementById('add-roast');
+var submitToAdd = document.querySelector('#add-coffee-submit');
+
+
+
+
+
 coffeesContainer.innerHTML = renderCoffees(coffees);
 
 searchedCoffee.addEventListener('keyup', inputSearch, false);
 submitButton.addEventListener('click', updateCoffees);
 roastSelection.addEventListener("change", updateCoffees);
+
+submitToAdd.addEventListener('click', addCoffee);
