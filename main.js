@@ -4,6 +4,10 @@
 function renderCoffee(coffee) {
     var html = '<div class="col-12 col-lg-6 coffee d-flex my-2">';
     html += '<h4 class="mr-2">' + coffee.name + '</h4>';
+
+    // if (coffees.roast == 'light') {
+    //     html += '<p class ="text-muted"><span class="badge badge-primary">' + coffee.roast + '</span></p>';
+    // }
     html += '<p class="text-muted"><span class="badge badge-secondary">' + coffee.roast + '</span></p>';
     html += '</div>';
 
@@ -43,7 +47,6 @@ function inputSearch (e) {
     for (var i = 0; i < coffees.length; i++) {
         if (coffees[i].name.toLowerCase().includes(searchedCoffee.value)) {
             html += renderCoffee(coffees[i]);
-            console.log(html);
         }
     }
     coffeesContainer.innerHTML = html;
