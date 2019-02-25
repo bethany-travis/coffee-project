@@ -2,7 +2,7 @@
 
 
 function renderCoffee(coffee) {
-    var html = '<div class="col-12 col-lg-6 coffee d-flex my-2">';
+    var html = '<div class="col-6 coffee d-flex my-2">';
     html += '<h4 class="mr-2">' + coffee.name + '</h4>';
 
     // if (coffees.roast == 'light') {
